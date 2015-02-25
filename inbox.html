@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Strata by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<script type="text/javascript">
+			$(function(){
+				$("#submit_btn").click(function(){
+					var proceed = true;
+					$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
+						if(!$.trim($(this).val())){ //if this field is empty 
+			                $(this).css('border-color','red'); //change border color to red   
+			                proceed = false; //set do not proceed flag
+			            }
+					});
+					if (proceed) {
+						$.post("send.php", $("#contact_form").serialize(),  function(response) {
+							
+							//if(response.type != 'error'){ //load json data from server and output message     
+								$("#contact_form input[required=true], #contact_form textarea[required=true]").val('');
+								//console.log("hola");
+							//}
+							$("#success").html(response);
+							$("#success").show('slow');
+						});
+						return false;
+					}else{
+						$("#success").html("Datos Faltantes.");
+						$("#success").show('slow');
+					}
+
+				});
+				$("#contact_form input[required=true], #contact_form textarea[required=true]").keyup(function(){
+					$(this).css('border-color','');
+					$("#success").hide('slow');
+				});
+
+			});
+		</script>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+
+				<a href="#" class="image avatar"><img src="images/foto.png" alt="" /></a>
+				<h1>MY <br>
+				NAME <br >
+				IS: <br class="medium">
+				<strong>ARNOLD <br >
+				 CORTES</strong></h1>
+				
+			</header>
+			<div class="barraIconos">
+				<a href="index.html" class="icono"><img src="images/home.png" alt="" /></a> 	
+				<a href="cv.html" class="icono"><img src="images/curriculum.png" alt="" /></a> 	
+				<a href="book.html" class="icono"><img src="images/portafolio.png" alt="" /></a> 	
+				<a href="inbox.html" class="icono"><img src="images/mail-.png" alt="" /></a> 
+					
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+		
+				<!-- Three -->
+					<section id="three">
+						<h2>Contacto</h2>
+						<p id="success"></p>
+						<div class="row">
+							<div class="12u 12u$(2)">
+								<form method="post" id="contact_form">
+									<div class="row uniform 50%">
+										<div class="6u 12u$(3)"><input type="text" name="name" id="name" required="true" placeholder="Nombre" /></div>
+										<div class="6u$ 12u$(3)"><input type="email" name="email" id="email" required="true" placeholder="Email" /></div>
+										<div class="12u$"><textarea name="message" id="message" required="true" placeholder="Mensaje" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" id="submit_btn" value="Enviar" /></li>
+								</ul>
+							</div>
+							
+						</div>
+					</section>
+
+				
+		<!-- Footer
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+			 -->
+
+	</body>
+</html>
