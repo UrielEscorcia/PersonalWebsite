@@ -1076,7 +1076,7 @@
 				border-top: 0;
 				margin-top: 0;
 				padding: 1em;
-				background:rgba(237,237,237,0.3);
+				
 				border-radius: 12px;
 				-moz-border-radius:12px;
 				-webkit-border-radius:12px;
@@ -1099,6 +1099,13 @@
 	#one .skills{
 		max-width: 40% !important;
 		height: auto;
+	}
+	#one, #two, #three{
+		background:rgba(237,237,237,0.3);
+	}
+	
+	#four img{
+		max-width: 75%%;
 	}
 
 
