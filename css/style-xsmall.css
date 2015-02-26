@@ -5,6 +5,9 @@
 */
 
 /* List */
+body{
+	background-size: 200% 100%;
+}
 
 	ul.actions {
 		margin: 0 0 2em 0;

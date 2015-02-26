@@ -386,27 +386,27 @@
 
 	::-webkit-input-placeholder {
 		color: #2d4c83 !important;
-		opacity: 1.0;
+		opacity: 0.5;
 	}
 
 	:-moz-placeholder {
 		color: #2d4c83 !important;
-		opacity: 1.0;
+		opacity: 0.5;
 	}
 
 	::-moz-placeholder {
 		color: #2d4c83 !important;
-		opacity: 1.0;
+		opacity: 0.5;
 	}
 
 	:-ms-input-placeholder {
 		color: #2d4c83 !important;
-		opacity: 1.0;
+		opacity: 0.5;
 	}
 
 	.formerize-placeholder {
 		color: #2d4c83	 !important;
-		opacity: 1.0;
+		opacity: 0.5;
 	}
 
 /* Box */
@@ -1054,9 +1054,7 @@
 				}
 
 /*Section Three */
-#three{
-	padding: 10px;
-}
+
 
 /* Main */
 
@@ -1085,14 +1083,24 @@
 			}
 
 	/*Section Three */
+	#three{
+		padding: 10px;
+	}
+
 	#one h2,#one h3,#two h2, #three h2{
 		color: #FFFFFF;
 		text-align: right;
 		
 	}
-	#one {
+
+	#one, #three p{
 		color: #FFFFFF;
 	}
+	#one .skills{
+		max-width: 40% !important;
+		height: auto;
+	}
+
 
 	
 

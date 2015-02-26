@@ -11,7 +11,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
@@ -33,13 +33,15 @@
 					if (proceed) {
 						$.post("send.php", $("#contact_form").serialize(),  function(response) {
 							
-							//if(response.type != 'error'){ //load json data from server and output message     
+							
+							if(response.type != "error"){ //load json data from server and output message     
+
 								$("#contact_form input[required=true], #contact_form textarea[required=true]").val('');
-								//console.log("hola");
-							//}
-							$("#success").html(response);
+								
+							}
+							$("#success").html(response.text);
 							$("#success").show('slow');
-						});
+						}, "json");
 						return false;
 					}else{
 						$("#success").html("Datos Faltantes.");
