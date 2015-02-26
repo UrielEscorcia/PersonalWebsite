@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Strata by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<style type="text/css">
+			body{
+				background: #2a4368;
+			}
+			canvas{
+				border-color: #000;
+				border-width: 1px;
+				border-style: solid;
+			}
+		</style>
+		
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body >
+
+		<script type="text/javascript">
+			$(function(){
+				
+				var canvas = document.createElement('canvas');
+				if (window.innerWidth > window.innerHeight) {
+					canvas.width = 800;
+					canvas.height = 500;
+				}else{
+					canvas.width = 500;
+					canvas.height = 800;
+				}
+				$('body').append(canvas);
+
+				var centerCanvasWidth = canvas.width / 2;
+				var centerCanvasHeight = canvas.height / 2;	
+
+				var ctx = canvas.getContext('2d');
+				
+				
+				function drawText(text,size){
+					ctx.font = size.toString()+'px impact';
+					ctx.fillStyle = "#FFFFFF";
+					var txtWidth = ctx.measureText(text ).width / 2;
+
+					ctx.fillText(text,(centerCanvasWidth - txtWidth),centerCanvasHeight);
+				}
+				drawText("UHH",60);
+
+			});
+			
+
+		</script>
+
+	</body>
+</html>
