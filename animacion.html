@@ -44,16 +44,41 @@
 				var centerCanvasHeight = canvas.height / 2;	
 
 				var ctx = canvas.getContext('2d');
+				var texts = ["UHH","ILUSTRACION","TIP","OGRA","FIA","ES","DISEÑO","CHIDO","ONE."];
 				
-				
-				function drawText(text,size){
+				function setTextProperties(text,size,y){
 					ctx.font = size.toString()+'px impact';
-					ctx.fillStyle = "#FFFFFF";
-					var txtWidth = ctx.measureText(text ).width / 2;
+					var textProperties ={};
+					var txtWidth = ctx.measureText(text ).width / 2 ;
+					textProperties.x = centerCanvasWidth ;
+					textProperties.y = y;
+					textProperties.text = text;
+					textProperties.font = size.toString()+'px impact';
 
-					ctx.fillText(text,(centerCanvasWidth - txtWidth),centerCanvasHeight);
+					return textProperties;
 				}
-				drawText("UHH",60);
+
+				function drawIt(texto){
+					ctx.fillStyle = "#FFFFFF";
+					ctx.font = texto.font;
+					ctx.textAlign = "center";
+					ctx.textBaseline="middle";
+					ctx.fillText(texto.text,texto.x,texto.y);
+				}
+
+				var texto = setTextProperties(texts[0],160,centerCanvasHeight*2+80)
+
+				function animate(){
+					
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+					drawIt(texto);
+			        var newY = 5;
+					if (texto.y>centerCanvasHeight) 
+						texto.y -=newY; 					
+					requestAnimationFrame(animate);
+				}
+				
+				animate();
 
 			});
 			
@@ -62,3 +87,5 @@
 
 	</body>
 </html>
+
+
