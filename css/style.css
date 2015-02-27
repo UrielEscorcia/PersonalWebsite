@@ -939,11 +939,6 @@
 
 	#header {
 		background-color: #2d4c83;
-		background-attachment: scroll,								fixed;
-		background-position: top left,							top left;
-		background-repeat: repeat,								no-repeat;
-		background-size: auto,								auto 100%;
-		color: rgba(255, 255, 255, 1);
 		height: 100%;
 		left: 0;
 		padding: 8em 5em 8em 5em;
@@ -953,6 +948,8 @@
 		width: 40%;
 		font-family: "Impact";
 		display: table;
+		
+		
 	}
 
 		#header strong, #header b {
@@ -976,6 +973,23 @@
 			margin: 0 auto;
 			width: 8.25em;
 			display: none;
+		}
+
+		#header .helper {
+			
+			
+			display: inline-block;
+		    height: 100%;
+		    vertical-align: middle;
+
+			
+		}
+
+		#header img{
+			
+			vertical-align: middle;
+			width: 100%;
+			
 		}
 
 		.barraIconos {
@@ -1013,19 +1027,33 @@
 	#footer {
 		bottom: 0;
 		left: 0;
-		padding: 0 4em 6em 0;
+		padding: 0 4em 13em 0;
 		position: fixed;
-		text-align: right;
-		width: 35%;
+		text-align: center;
+		width: 40%;
 	}
 
 		#footer .icons {
-			margin: 1em 0 0 0;
+			margin: 2em 0 0 0;
 		}
 
 			#footer .icons a {
 				color: rgba(255, 255, 255, 0.4);
 			}
+
+			#footer .icons li{
+				padding: 0 0 0 0;
+			}
+
+			#footer .icons .iconCenterF{
+				padding: 0 2em 0 2em;
+			}
+			
+
+			#footer .icons img{
+				max-height: 2em;
+			}
+			
 
 		#footer .copyright {
 			color: rgba(255, 255, 255, 0.4);
@@ -1105,7 +1133,8 @@
 	}
 	
 	#four img{
-		max-width: 75%%;
+		max-width: 75%;
+
 	}
 
 

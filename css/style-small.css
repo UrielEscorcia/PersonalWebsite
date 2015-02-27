@@ -42,6 +42,7 @@
 
 	#header {
 		padding: 2.25em 1.5em;
+		height: 220px;
 
 	}
 
@@ -68,7 +69,7 @@
 	.barraIconos .icono {
 		
 		top: 0%;
-		left: 20%;
+		left: 22%;
 	}
 
 	.barraIconos .icono img{
@@ -81,13 +82,14 @@
 /* Footer */
 
 	#footer {
-		padding: 2.25em 1.5em;
+		width: 100%;
+		padding: 1em 1.5em 0.1em 1.5em;
 	}
 
 /* Main */
 
 	#main {
-		padding: 2.25em 1.5em 0.25em 1.5em;
+		padding: 2.25em 1em 1em 1.5em;
 	}
 
 		#main > section {
@@ -112,3 +114,4 @@
 		
 		padding: 1em;
 	}
+

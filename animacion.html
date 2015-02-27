@@ -20,6 +20,7 @@
 				border-color: #000;
 				border-width: 1px;
 				border-style: solid;
+
 			}
 		</style>
 		
@@ -32,11 +33,11 @@
 				
 				var canvas = document.createElement('canvas');
 				if (window.innerWidth > window.innerHeight) {
-					canvas.width = 800;
-					canvas.height = 500;
+					canvas.width = 640;
+					canvas.height = 400;
 				}else{
-					canvas.width = 500;
-					canvas.height = 800;
+					canvas.width = 400;
+					canvas.height = 640;
 				}
 				$('body').append(canvas);
 
@@ -46,11 +47,11 @@
 				var ctx = canvas.getContext('2d');
 				var texts = ["UHH","ILUSTRACION","TIP","OGRA","FIA","ES","DISEÑO","CHIDO","ONE."];
 				
-				function setTextProperties(text,size,y){
+				function setTextProperties(text,size,x,y){
 					ctx.font = size.toString()+'px impact';
 					var textProperties ={};
 					var txtWidth = ctx.measureText(text ).width / 2 ;
-					textProperties.x = centerCanvasWidth ;
+					textProperties.x = x;
 					textProperties.y = y;
 					textProperties.text = text;
 					textProperties.font = size.toString()+'px impact';
@@ -66,19 +67,81 @@
 					ctx.fillText(texto.text,texto.x,texto.y);
 				}
 
-				var texto = setTextProperties(texts[0],160,centerCanvasHeight*2+80)
 
-				function animate(){
-					
+				function animate(lastUpdate){
+					//ctx.fillRect(0,centerCanvasHeight,canvas.width,2); 
+					var now = Date.now();
+				    var dt = now - lastUpdate;
+				    lastUpdate = now;					
+					draw();
+					update(dt);
+					requestAnimationFrame(function(){
+						animate(lastUpdate);
+					});
+				}
+
+				function draw(){
 					ctx.clearRect(0,0,canvas.width,canvas.height);
 					drawIt(texto);
-			        var newY = 5;
-					if (texto.y>centerCanvasHeight) 
-						texto.y -=newY; 					
-					requestAnimationFrame(animate);
+					if (showText[1] == 1) {
+						drawIt(texto2);
+						positionText1 = 0.25;
+					}
+
+					if (showText[2] == 1) {
+						drawIt(texto3);
+						positionText1 = 0;
+						positionText2 = 0.23;
+					}
+				}
+
+				function update(dt){
+					var newY = 5*Math.floor( dt/16 );
+
+					if (showText[2] == 1) {
+						if (texto3.y > canvas.height*positionText3) {
+							texto3.y -=newY;	
+						}
+						else{
+							setTimeout(function(){
+								showText[3] = 1;							
+							},300);
+						}
+					}
+
+					if (showText[1] == 1) {
+						if (texto2.y > canvas.height*positionText2) {
+							texto2.y -=newY;	
+						}
+						else{
+							setTimeout(function(){
+								showText[2] = 1;							
+							},300);
+						}
+					}
+
+					if (texto.y > canvas.height*positionText1) 
+						texto.y -=newY;
+					else{
+						setTimeout(function(){
+							showText[1] = 1;
+						},300);
+					}
+
+					
+
 				}
 				
-				animate();
+				var showText = [1,0,0,0,0,0,0,0,0];
+				var texto = setTextProperties(texts[0],160,centerCanvasWidth, centerCanvasHeight*2+80);
+				var positionText1 = 0.37;
+				var texto2 = setTextProperties(texts[1],50,centerCanvasWidth, canvas.height*.6);
+				var positionText2 = 0.48;
+				var texto3 = setTextProperties(texts[2],75,canvas.width*0.37, canvas.height*.61);
+				var positionText3 = 0.36;
+
+				var lastUpdate = Date.now();
+				animate(lastUpdate);
 
 			});
 			
