@@ -1137,6 +1137,25 @@
 
 	}
 
+	#four {
+		padding: 3em !important;
+	}
+	#four h2{
+		color: white;
+	}
+
+	
+
+	#four .cajita{
+		background:rgba(237,237,237,0.3);
+		border-radius: 12px;
+		padding: 2em;
+		color: white;
+		text-align: center;	
+		font-size: 1.5em;
+		font-family: 'Impact';
+	}
+
 
 	
 
