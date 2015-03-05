@@ -8,7 +8,7 @@ if ($_POST) {
 
 	$subject = 'Contacto Arnoldo';
 	$message = 'FROM: '.$name.' Email: '.$email."\r\n".' Message: '.$message;
-	$headers = 'From: uris.ec10@gmail.com' . "\r\n";
+	$headers = 'From: arnoldcortes@imagenworks.com' . "\r\n";
 
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // this line checks that we have a valid email address
 		if (mail($to_email, $subject, $message, $headers))  //This method sends the mail.
