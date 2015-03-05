@@ -58,7 +58,7 @@ body{
 
 	.barraIconos .icono {
 		
-		left: 15%;
+		left: 9%;
 	}
 
 	.barraIconos .icono img{
@@ -80,5 +80,23 @@ body{
 	}
 
 	#four img{
-	padding-left: 1.25em;
-}
+		padding-left: 1.25em;
+	}
+
+	#four {
+		padding: 0.5em !important;
+	}
+	#four h2{
+		color: white;
+	}
+
+	
+
+	#four .cajita{
+		
+		padding: 1em;
+		
+		text-align: center;	
+		font-size: 1em;
+		
+	}
